@@ -1,3 +1,5 @@
+console.log("templates.js loaded");
+console.log(pokemonData[200]);
 const pokemons = Object.values(pokemonData);
 
 function templatePokemonCard(id, animationIndex) {
