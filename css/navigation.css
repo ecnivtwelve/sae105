@@ -13,6 +13,7 @@ nav {
   transition: all 0.1s;
 
   border-bottom: 1px solid #00000022;
+  padding-top: env(safe-area-inset-top);
 }
 
 nav.light:not(.scroll) {
@@ -27,9 +28,8 @@ nav.scroll {
 }
 
 .nav-wrapper {
-  height: calc(58px + env(safe-area-inset-top));
+  height: 58px;
   display: flex;
-  padding-top: env(safe-area-inset-top);
 }
 
 .nav-wrapper > * {
