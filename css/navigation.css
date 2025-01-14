@@ -27,8 +27,9 @@ nav.scroll {
 }
 
 .nav-wrapper {
-  height: 58px;
+  height: calc(58px + env(safe-area-inset-top));
   display: flex;
+  padding-top: env(safe-area-inset-top);
 }
 
 .nav-wrapper > * {
@@ -165,5 +166,5 @@ nav.light:not(.scroll) .nav-link.active {
 }
 
 .nav-height {
-  height: 58px;
+  height: calc(58px + env(safe-area-inset-top));
 }
