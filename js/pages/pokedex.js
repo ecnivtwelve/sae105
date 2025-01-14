@@ -93,6 +93,7 @@ const pokemonTypesWithSymbols = [
   { type: "Ténèbres", symbol: "visibility_off" },
   { type: "Acier", symbol: "construction" },
   { type: "Fée", symbol: "auto_awesome" },
+  { type: "Spécial", symbol: "hotel_class" },
 ];
 
 const typesDropdown = document.getElementById("types-dropdown");
