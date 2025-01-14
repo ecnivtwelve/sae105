@@ -25,9 +25,10 @@ function showMyCardsToPokedex() {
   const storage = localStorage.getItem("collectedPokemons");
 
   if (!storage) {
-    document.body.classList.add("no-cards");
     return;
   }
+
+  const collected = JSON.parse(storage);
 
   const cardsHTML = Object.keys(collected)
     .map((pokemon) =>
