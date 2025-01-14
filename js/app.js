@@ -102,7 +102,9 @@ function applyName() {
 
   // set all .hello-name text to the current name
   document.querySelectorAll(".hello-name").forEach((element) => {
-    element.innerHTML = "Bonjour, " + currentName + " !" || "Bonjour !";
+    element.innerHTML = currentName
+      ? "Bonjour, " + currentName + " !"
+      : "Bienvenue sur Pokésaé !";
   });
 
   document.querySelectorAll(".user-name").forEach((element) => {
