@@ -1,5 +1,3 @@
-console.log("templates.js loaded");
-console.log(pokemonData[200]);
 const pokemons = Object.values(pokemonData);
 
 function templatePokemonCard(id, animationIndex) {
@@ -79,8 +77,8 @@ function templateStat(icon, title, value) {
     fillValue = 100;
   }
 
-  if (value < 20) {
-    fillValue = 20;
+  if (value < 16) {
+    fillValue = 16;
   }
 
   return `
