@@ -4803,7 +4803,7 @@ const pokemonData = {
     identifier: "sylvain",
     height: 20,
     weight: 795,
-    base_experience: 172,
+    base_experience: -1,
     name: {
       fr: "Sylvain",
       en: "Sywlvain",
@@ -4827,7 +4827,7 @@ const pokemonData = {
     identifier: "pierre",
     height: 20,
     weight: 795,
-    base_experience: 172,
+    base_experience: 5400,
     name: {
       fr: "Pierre",
       en: "Piewwre",
