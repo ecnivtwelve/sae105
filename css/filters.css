@@ -1,0 +1,142 @@
+/* Filter */
+
+.pokedex-filters {
+  display: flex;
+  gap: 16px;
+  width: var(--width);
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.pokedex-filter {
+  width: 200px;
+  height: 46px;
+  overflow: visible;
+
+  position: relative;
+}
+
+.pokedex-filter-select {
+  width: calc(200px - (20px * 2));
+  height: 46px;
+  border: 1px solid #00000020;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  border-radius: 300px;
+
+  padding: 0 20px;
+  gap: 10px;
+
+  transition: all 0.2s;
+}
+
+.pokedex-filter-select:hover {
+  background: #00000010;
+  cursor: pointer;
+}
+
+.pokedex-filter .filter-text {
+  width: 100%;
+  user-select: none;
+
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.pokedex-dropdown {
+  width: 100%;
+  min-height: 20px;
+
+  max-height: 400px;
+
+  background: #fff;
+  box-shadow: 0 1px 5px #00000042;
+  border: 1px solid #00000030;
+
+  border-radius: 10px;
+
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 100%;
+
+  margin-top: 0px;
+  opacity: 0;
+
+  transition: all 0.2s;
+
+  overflow: hidden;
+  overflow-y: scroll;
+  pointer-events: none;
+}
+
+.pokedex-dropdown.active {
+  opacity: 1;
+  margin-top: 10px;
+  pointer-events: all;
+}
+
+.pokedex-dropdown-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 10px;
+
+  color: inherit;
+  text-decoration: none;
+
+  transition: all 0.2s;
+}
+
+.pokedex-dropdown-item.selected {
+  background: rgba(var(--base-color-rgb), 0.2);
+}
+
+.pokedex-dropdown-item.selected:hover {
+  background: rgba(var(--base-color-rgb), 0.35);
+}
+
+.pokedex-dropdown-item:hover {
+  background: #00000010;
+}
+
+.item-text {
+  margin: 0;
+  padding: 0;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.type-filter-active .dropdown-arrow-icon {
+  display: none;
+}
+
+.filter-reset {
+  display: none;
+
+  color: inherit;
+  text-decoration: none;
+
+  width: 24px;
+  height: 24px;
+
+  opacity: 0.5;
+}
+
+.filter-reset:hover {
+  opacity: 1;
+}
+
+.type-filter-active .filter-reset {
+  display: block;
+}
+
+.type-filter-active .pokedex-filter-select {
+  border: 1px solid var(--base-color);
+  background-color: rgba(var(--base-color-rgb), 0.1);
+}

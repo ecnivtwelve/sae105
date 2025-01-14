@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokédex — Pokésaé</title>
+    <link rel="stylesheet" href="css/main.css" />
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/preview.css" />
+    <link rel="stylesheet" href="css/categories.css" />
+    <link rel="stylesheet" href="css/filters.css" />
+    <link rel="stylesheet" href="css/login.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="plain">
+    <!-- Se répète sur chaque page ou la connexion est possible -->
+    <div id="login-modal">
+      <div class="login">
+        <p class="login-overtitle">Se connecter à mon compte</p>
+        <p class="login-title">Profitez d'une expérience personnalisée</p>
+        <p class="login-description">
+          Connectez-vous à votre compte pour conserver votre collection de
+          Pokémons à tout moment et améliorer votre expérience Pokésaé !
+        </p>
+
+        <input
+          class="login-input"
+          type="text"
+          placeholder="Prénom"
+          id="login-firstname"
+        />
+
+        <a href="#" onclick="saveModalName()" class="login-button"
+          >Se connecter</a
+        >
+        <a
+          href="#"
+          onclick="closeLoginModal()"
+          class="login-button login-button-cancel"
+          >Annuler</a
+        >
+      </div>
+    </div>
+
+    <div id="app">
+      <div class="page-hover-gradient muffled"></div>
+      <nav>
+        <div class="nav-wrapper width">
+          <div class="nav-logo">
+            <a href="/">
+              <img class="nav-logo-image" src="assets/logo.png" alt="Pokésaé" />
+            </a>
+          </div>
+          <div class="nav-links">
+            <a class="nav-link" href="index.html">
+              <span class="nav-link-icon material-symbols-outlined">home</span>
+              <p class="nav-link-text">Accueil</p>
+            </a>
+            <a class="nav-link active" href="pokedex.html">
+              <span class="nav-link-icon material-symbols-outlined"
+                >book_4_spark</span
+              >
+              <p class="nav-link-text">Pokédex</p>
+            </a>
+          </div>
+          <div class="nav-account" onclick="openLoginModal()">
+            <p class="nav-account-name user-name">Connectez-vous</p>
+            <img
+              class="nav-account-image"
+              src="assets/default_pdp.png"
+              alt="User"
+            />
+          </div>
+        </div>
+      </nav>
+
+      <div class="nav-height"></div>
+
+      <div class="pokedex-filters width">
+        <div class="pokedex-filter" id="type-filter">
+          <div class="pokedex-filter-select">
+            <span
+              class="filter-icon material-symbols-outlined"
+              id="type-select-icon"
+              >filter_list</span
+            >
+            <p class="filter-text" id="type-select-text">Type</p>
+
+            <span class="dropdown-arrow-icon material-symbols-outlined"
+              >arrow_drop_down</span
+            >
+
+            <a class="filter-reset" onclick="resetFilter('type')">
+              <span class="dropdown-icon material-symbols-outlined">close</span>
+            </a>
+          </div>
+
+          <div class="pokedex-dropdown" id="types-dropdown"></div>
+        </div>
+
+        <div class="search pokedex">
+          <span class="search-icon material-symbols-outlined">search</span>
+          <input
+            id="search"
+            class="search-input"
+            autocomplete="off"
+            type="text"
+            placeholder="Rechercher des Pokémon, un type ou un élément"
+          />
+        </div>
+      </div>
+
+      <div class="category-title category-my">
+        <span class="category-icon material-symbols-outlined">person</span>
+        <h3 class="category-title-text">Mes cartes</h3>
+        <div class="category-line"></div>
+      </div>
+
+      <div class="card-grid" id="my-cards"></div>
+
+      <div class="category-title category-my">
+        <span class="category-icon material-symbols-outlined">star</span>
+        <h3 class="category-title-text">Toutes les cartes</h3>
+        <div class="category-line"></div>
+      </div>
+
+      <div class="card-grid" id="all-cards"></div>
+    </div>
+
+    <footer>
+      <div class="footer-wrapper width">
+        <p class="conditions">
+          Travail de SAE105 — Vince Linise (MMI 1A1 - 2025)
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/pokemon_data.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pokemon_api.js"></script>
+    <script src="js/pages/pokedex.js"></script>
+  </body>
+</html>

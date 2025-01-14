@@ -1,0 +1,154 @@
+.search {
+  max-width: 700px;
+  width: calc(100% - 40px);
+  height: 46px;
+  margin: 0 20px;
+
+  margin-top: 20px;
+
+  background-color: #00000015;
+  border: 1px solid #00000000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 300px;
+
+  padding: 0 20px;
+
+  transition: outline 0.2s, background-color 0.2s;
+}
+
+.search.pokedex {
+  max-width: 100%;
+  margin: 20px 0;
+  margin-top: 0;
+}
+
+.search:focus-within {
+  background-color: rgba(var(--base-color-rgb), 0.1);
+  outline: 3px solid rgba(var(--base-color-rgb), 0.3);
+  border-color: var(--base-color);
+}
+
+.search-icon {
+  opacity: 0.5;
+}
+
+.search-input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: none;
+  padding: 0 12px;
+
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+/* Résultats de recherche */
+
+#search-results {
+  position: absolute;
+  top: 230px;
+
+  z-index: 1000;
+
+  background: #fff;
+  box-shadow: 0 1px 5px #00000022;
+  border: 1px solid #00000030;
+
+  width: 100%;
+  max-width: calc(700px + (18px * 2));
+
+  border-radius: 16px;
+  overflow: hidden;
+
+  flex-direction: column;
+
+  margin-top: -20px;
+  opacity: 0;
+  pointer-events: none;
+
+  transition: all 0.2s;
+}
+
+#search-results.visible {
+  opacity: 1;
+  margin-top: 0;
+  pointer-events: all;
+}
+
+.search-result {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #00000020;
+}
+
+a.search-result {
+  text-decoration: none;
+  color: inherit;
+}
+
+.search-result:last-child {
+  border-bottom: none;
+}
+
+.search-separator {
+  height: 3px;
+  background: #00000020;
+}
+
+.hide:not(.flex) {
+  display: none;
+}
+
+.flex {
+  display: flex !important;
+}
+
+.search-result:hover {
+  background: #00000010;
+  cursor: pointer;
+}
+
+.search-result p {
+  margin: 0;
+  padding: 0;
+}
+
+.search-result-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.search-result-title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.search-result-description {
+  font-size: 0.84rem;
+  letter-spacing: 0.7px;
+  opacity: 0.6;
+}
+
+.search-image {
+  width: 42px;
+  aspect-ratio: 1/1;
+}
+
+.search-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}

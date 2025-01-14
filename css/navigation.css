@@ -1,0 +1,169 @@
+/* NAVIGATION */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  padding: 0;
+  margin: 0;
+
+  transition: all 0.1s;
+
+  border-bottom: 1px solid #00000022;
+}
+
+nav.light:not(.scroll) {
+  border-bottom: 1px solid #ffffff32;
+  color: #fff;
+}
+
+nav.scroll {
+  background: #fff;
+  box-shadow: 0 1px 2px #00000022;
+  border-bottom: 1px solid #00000000;
+}
+
+.nav-wrapper {
+  height: 58px;
+  display: flex;
+}
+
+.nav-wrapper > * {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo,
+.nav-account {
+  width: 200px;
+  height: 100%;
+}
+
+.nav-logo-image {
+  height: 40px;
+
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.nav-logo-image:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 4px #00000032);
+}
+
+.nav-account {
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+@media screen and (max-width: 800px) {
+  .nav-account {
+    display: none;
+  }
+}
+
+.nav-account-name {
+  font-size: 0.9rem;
+  letter-spacing: 0.1px;
+  font-weight: 500;
+
+  opacity: 0.6;
+
+  text-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  user-select: none;
+}
+
+.nav-account-name:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.nav-account-image {
+  height: 34px;
+  width: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #00000042;
+}
+
+.nav-account-image:hover {
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link {
+  margin: 0 10px;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 12px;
+  padding: 0 10px;
+  height: calc(100% - 2px);
+  border-bottom: 2px solid transparent;
+  padding-top: 2px;
+  opacity: 0.5;
+}
+
+nav.light:not(.scroll) .nav-link {
+  color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-link {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link.active {
+  color: var(--base-color);
+  border-bottom: 2px solid var(--base-color);
+  opacity: 1;
+}
+
+nav.light:not(.scroll) .nav-link.active {
+  color: #fff;
+  border-bottom: 2px solid #fff;
+  opacity: 1;
+}
+
+.nav-link-icon {
+  font-family: 24px;
+}
+
+.nav-link-text {
+  padding: 0;
+  margin: 0;
+  font-size: 0.84rem;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  font-weight: 600;
+
+  text-wrap: nowrap;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-height {
+  height: 58px;
+}

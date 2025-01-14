@@ -1,0 +1,12 @@
+/* FOOTER */
+footer {
+  margin-top: 32px;
+  padding: 16px 0;
+  background: #00000010;
+}
+
+.conditions {
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.5;
+}

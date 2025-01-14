@@ -1,0 +1,28 @@
+/* HEADER */
+
+.main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3px;
+  padding: 32px 0;
+}
+
+.greeting {
+  font-size: 1.7rem;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  letter-spacing: -0.2px;
+  text-align: center;
+}
+
+.subgreeting {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  opacity: 0.4;
+  text-align: center;
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokésaé</title>
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/categories.css" />
+    <link rel="stylesheet" href="css/types.css" />
+    <link rel="stylesheet" href="css/login.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Se répète sur chaque page ou la connexion est possible -->
+    <div id="login-modal">
+      <div class="login">
+        <p class="login-overtitle">Se connecter à mon compte</p>
+        <p class="login-title">Profitez d'une expérience personnalisée</p>
+        <p class="login-description">
+          Connectez-vous à votre compte pour conserver votre collection de
+          Pokémons à tout moment et améliorer votre expérience Pokésaé !
+        </p>
+
+        <input
+          class="login-input"
+          type="text"
+          placeholder="Prénom"
+          id="login-firstname"
+        />
+
+        <a href="#" onclick="saveModalName()" class="login-button"
+          >Se connecter</a
+        >
+        <a
+          href="#"
+          onclick="closeLoginModal()"
+          class="login-button login-button-cancel"
+          >Annuler</a
+        >
+      </div>
+    </div>
+
+    <div class="page-hover-gradient"></div>
+    <nav>
+      <div class="nav-wrapper width">
+        <div class="nav-logo">
+          <a href="/">
+            <img class="nav-logo-image" src="assets/logo.png" alt="Pokésaé" />
+          </a>
+        </div>
+        <div class="nav-links">
+          <a class="nav-link active" href="index.html">
+            <span class="nav-link-icon material-symbols-outlined">home</span>
+            <p class="nav-link-text">Accueil</p>
+          </a>
+          <a class="nav-link" href="pokedex.html">
+            <span class="nav-link-icon material-symbols-outlined"
+              >book_4_spark</span
+            >
+            <p class="nav-link-text">Pokédex</p>
+          </a>
+        </div>
+        <div class="nav-account" onclick="openLoginModal()">
+          <p class="nav-account-name user-name">Connectez-vous</p>
+          <img
+            class="nav-account-image"
+            src="assets/default_pdp.png"
+            alt="User"
+          />
+        </div>
+      </div>
+    </nav>
+
+    <div class="nav-height"></div>
+
+    <header class="width main-title">
+      <h2 class="greeting hello-name">Bienvenue !</h2>
+      <p class="subgreeting">Quel Pokémon capturerez-vous aujourd’hui ?</p>
+
+      <div class="search">
+        <span class="search-icon material-symbols-outlined">search</span>
+        <input
+          id="search"
+          class="search-input"
+          autocomplete="off"
+          type="text"
+          placeholder="Rechercher des Pokémon, un type ou un élément"
+        />
+      </div>
+
+      <div id="search-results">
+        <div class="search-result">
+          <span class="search-icon material-symbols-outlined">search</span>
+          <div class="search-result-content">
+            <p class="search-result-description">Commencez par rechercher</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-types">
+      <a
+        href="pokedex.html?type=Électrique"
+        class="main-type"
+        style="--color: #f7dc67"
+        onmouseenter="setHomeColor('#f7dc67')"
+        onmouseleave="resetHomeColor()"
+      >
+        <div class="main-type-name">
+          <span class="main-type-icon material-symbols-outlined">bolt</span>
+          <p class="main-type-text">Électrique</p>
+        </div>
+        <img class="main-type-image" src="./img/full/25.png" alt="Électrique" />
+      </a>
+      <a
+        href="pokedex.html?type=Eau"
+        class="main-type"
+        style="--color: #84c6d5"
+        onmouseenter="setHomeColor('#84c6d5')"
+        onmouseleave="resetHomeColor()"
+      >
+        <div class="main-type-name">
+          <span class="main-type-icon material-symbols-outlined"
+            >water_drop</span
+          >
+          <p class="main-type-text">Eau</p>
+        </div>
+        <img class="main-type-image" src="./img/full/7.png" alt="Eau" />
+      </a>
+      <a
+        href="pokedex.html?type=Feu"
+        class="main-type"
+        style="--color: #f3b185"
+        onmouseenter="setHomeColor('#f3b185')"
+        onmouseleave="resetHomeColor()"
+      >
+        <div class="main-type-name">
+          <span class="main-type-icon material-symbols-outlined"
+            >local_fire_department</span
+          >
+          <p class="main-type-text">Feu</p>
+        </div>
+        <img class="main-type-image" src="./img/full/6.png" alt="Feu" />
+      </a>
+      <a
+        href="pokedex.html?type=Psy"
+        class="main-type"
+        style="--color: #d8afd0"
+        onmouseenter="setHomeColor('#d8afd0')"
+        onmouseleave="resetHomeColor()"
+      >
+        <div class="main-type-name">
+          <span class="main-type-icon material-symbols-outlined"
+            >neurology</span
+          >
+          <p class="main-type-text">Psy</p>
+        </div>
+        <img class="main-type-image" src="./img/full/150.png" alt="Psy" />
+      </a>
+    </div>
+
+    <div class="category-title">
+      <span class="category-icon material-symbols-outlined">star</span>
+      <h3 class="category-title-text">Pokémon populaires</h3>
+      <div class="category-line"></div>
+      <a class="category-button" onClick="addPokemonToHomeRecent()">
+        <span class="category-icon material-symbols-outlined">refresh</span>
+      </a>
+    </div>
+
+    <div class="card-grid" id="popular-cards"></div>
+
+    <footer>
+      <div class="footer-wrapper width">
+        <p class="conditions">
+          Travail de SAE105 — Vince Linise (MMI 1A1 - 2025)
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/pokemon_data.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pokemon_api.js"></script>
+    <script src="js/pages/home.js"></script>
+  </body>
+</html>
