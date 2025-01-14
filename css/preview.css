@@ -40,6 +40,15 @@
   border: 8px solid #f9f9f9;
   background: #f9f9f9;
   border-radius: 20px;
+  z-index: 999;
+}
+
+@media screen and (max-width: 800px) {
+  .pokemon-card-container {
+    /* center the card */
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 .preview-shadow {
@@ -129,6 +138,15 @@
 
   display: flex;
   flex-direction: row;
+}
+
+@media screen and (max-width: 800px) {
+  .main-info {
+    margin-left: 0;
+    margin-top: 140px;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .main-info * {
@@ -270,6 +288,13 @@
   display: flex;
   gap: 10px;
   margin: 30px auto;
+}
+
+@media screen and (max-width: 800px) {
+  .data-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .data-information {
