@@ -1,9 +1,23 @@
-// Elements selector
+/*
+Fichier : app.js
+Portée : Commun à l'ensemble des pages de la SAE
+
+Objectifs :
+  - Styles au scroll
+  - Gestion de la recherche
+  - Gestion des couleurs dynamiques
+  - Création dynamique des dropdown
+  - Modal de connexion
+*/
+
 const nav = document.querySelector("nav");
 const searchbar = document.querySelector("#search") || null;
 const results = document.querySelector("#search-results");
 
-// Scroll listener
+/*
+----[ STYLES AU SCROLL ]----
+*/
+
 window.addEventListener("scroll", () => {
   if (window.scrollY > 0) {
     nav.classList.add("scroll");
@@ -11,6 +25,10 @@ window.addEventListener("scroll", () => {
     nav.classList.remove("scroll");
   }
 });
+
+/*
+----[ RECHERCHE ]----
+*/
 
 try {
   // Search listener
@@ -25,7 +43,6 @@ try {
   });
 
   searchbar.addEventListener("input", () => {
-    // replace all .search-term with the value of the input
     document.querySelectorAll(".search-term").forEach((element) => {
       element.innerHTML = searchbar.value;
     });
@@ -44,6 +61,10 @@ try {
   console.log(e);
 }
 
+/*
+----[ COULEUR AU HOVER ]----
+*/
+
 function setHomeColor(color) {
   document.documentElement.style.setProperty("--home-color", color);
 }
@@ -52,20 +73,21 @@ function resetHomeColor() {
   document.documentElement.style.removeProperty("--home-color");
 }
 
+/*
+----[ GESTION DES FILTRES / DROPDOWN ]----
+*/
+
 document.addEventListener("DOMContentLoaded", function () {
-  // Select all filter select elements
   const filterSelects = document.querySelectorAll(".pokedex-filter-select");
 
   filterSelects.forEach((select) => {
     select.addEventListener("click", function () {
-      // Toggle active class on both select and dropdown
       const dropdown = select.nextElementSibling;
       select.classList.toggle("active");
       dropdown.classList.toggle("active");
     });
   });
 
-  // Close dropdown when clicking outside
   document.addEventListener("click", function (e) {
     filterSelects.forEach((select) => {
       const dropdown = select.nextElementSibling;
@@ -76,6 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+/*
+----[ MODAL DE CONNEXION ]----
+*/
 
 function openLoginModal() {
   document.getElementById("login-modal").classList.add("active");
@@ -100,7 +126,6 @@ function saveModalName() {
 function applyName() {
   const currentName = localStorage.getItem("name");
 
-  // set all .hello-name text to the current name
   document.querySelectorAll(".hello-name").forEach((element) => {
     element.innerHTML = currentName
       ? "Bonjour, " + currentName + " !"
@@ -111,11 +136,9 @@ function applyName() {
     element.innerHTML = currentName || "Mon compte";
   });
 
-  // set input value to the current name
   document.getElementById("login-firstname").value = currentName || "";
 }
 
-// on enter key press
 try {
   document
     .getElementById("login-firstname")

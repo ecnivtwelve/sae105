@@ -1,3 +1,13 @@
+/*
+Fichier : pokemon_data.js
+Portée : Commun à l'ensemble des pages de la SAE
+
+Objectif : 
+  - Contient les données des Pokemon
+    - Se base sur le fichier de Moodle
+    - Complété via PokéAPI (https://pokeapi.co/) et Tyradex (https://tyradex.vercel.app/)
+*/
+
 const pokemonData = {
   1: {
     identifier: "bulbasaur",

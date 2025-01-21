@@ -1,20 +1,37 @@
+/*
+Fichier : pokemon.js
+Portée : Page d'accueil : pokemon.html
+*/
+
+// Obtient l'ID du pokemon dans l'URL (paramètres GET)
 const urlParams = new URLSearchParams(window.location.search);
 const pokemonId = urlParams.get("id");
 
-let pokemon = pokemons[pokemonId];
-let pokemonColor = genSeededColor(pokemonId);
+if (!pokemonId) {
+  document.body.classList.add("error");
+}
 
-// set --pokemon-color css variable
+// Obtient le pokemon depuis les données via l'ID en GET
+let pokemon = pokemons[pokemonId];
+
+if (!pokemon) {
+  document.body.classList.add("error");
+}
+
+// Obtient la couleur du pokemon via l'ID en GET puis l'applique en variable CSS
+let pokemonColor = genSeededColor(pokemonId);
 document.documentElement.style.setProperty(
   "--pokemon-color",
   "#" + pokemonColor
 );
 
+// Affiche la carte du pokemon
 const setCardToPlaceholder = () => {
   const card = document.getElementById("pokemon-card");
   card.innerHTML = templatePokemonCard(pokemonId);
 };
 
+// Place des images de pokemon via l'ID en GET (pour le fond animé)
 const placeImages = () => {
   // replace .pokemon-image src
   const images = document.querySelectorAll(".pokemon-image");
@@ -25,13 +42,16 @@ const placeImages = () => {
   });
 };
 
+// Affiche le nom
 document.getElementById("pokemon-name").innerText =
   pokemon.name["fr"] ?? pokemon.identifier;
 
+// Affichge la description
 document.getElementById("pokemon-description").innerText = `
   ${pokemon.name["fr"]} est un Pokémon de type ${pokemon.type_fr[0]} avec une expérience de base de ${pokemon.base_experience} points. Il se nomme ${pokemon.name["jp"]} en japonais et possède ${pokemon.stats.hp} points de vie.
 `.trim();
 
+// Vérifie si le Pokémon est collecté
 function checkIfCollected() {
   let collectedPokemons =
     JSON.parse(localStorage.getItem("collectedPokemons")) || {};
@@ -51,7 +71,9 @@ function checkIfCollected() {
   }
 }
 
+// Ajoût du Pokémon à la collection
 function collectPokemon() {
+  // Obtient les données de la collection depuis le localStorage
   let collectedPokemons =
     JSON.parse(localStorage.getItem("collectedPokemons")) || {};
   if (!collectedPokemons[pokemonId]) {
@@ -62,6 +84,7 @@ function collectPokemon() {
   checkIfCollected();
 }
 
+// Supprime le Pokémon de la collection
 function removePokemon() {
   let collectedPokemons =
     JSON.parse(localStorage.getItem("collectedPokemons")) || {};
@@ -72,6 +95,7 @@ function removePokemon() {
   checkIfCollected();
 }
 
+// Affiche les statistiques depuis le template
 function showStats() {
   let newStats = "";
 
@@ -91,6 +115,7 @@ function showStats() {
   document.getElementById("poke-stats").innerHTML = newStats;
 }
 
+// Affiche les évolutions avec une boucle
 function showEvolutions() {
   let newEvolutions = "";
 
@@ -145,6 +170,7 @@ function showEvolutions() {
   document.getElementById("poke-evolutions").innerHTML = newEvolutions;
 }
 
+// Affiche 4 pokémons aléatoires (comme sur home.js)
 function showRelatedPokemons() {
   const domElement = document.getElementById("related-cards");
   domElement.innerHTML = "";
@@ -157,6 +183,7 @@ function showRelatedPokemons() {
   }
 }
 
+// Appel des fonctions
 setCardToPlaceholder();
 placeImages();
 checkIfCollected();

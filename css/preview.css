@@ -442,3 +442,64 @@
   font-size: 15px;
   font-weight: 500;
 }
+
+#error-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #620000;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  display: none;
+  pointer-events: none;
+}
+
+.error #error-modal {
+  display: flex;
+  pointer-events: all;
+}
+
+.error-icon {
+  font-size: 42px !important;
+  margin-bottom: 8px !important;
+}
+
+.error-info {
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 500px;
+  margin: 20px;
+}
+
+.error-info * {
+  margin: 0;
+  padding: 0;
+}
+
+.error-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.error-description {
+  font-size: 16px;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.error-link {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  opacity: 0.8;
+  margin-top: 8px;
+}

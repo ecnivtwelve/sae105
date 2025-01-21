@@ -1,3 +1,13 @@
+/*
+Fichier : templates.js
+Portée : Commun à l'ensemble des pages de la SAE
+
+Objectif : 
+  - Contient les templates HTML qui se répètent
+    - Cartes pokémon
+    - Statistique de la page d'aperçu
+*/
+
 const pokemons = Object.values(pokemonData);
 
 function templatePokemonCard(id, animationIndex) {
