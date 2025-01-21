@@ -2,6 +2,8 @@
 Fichier : pokemon_data.js
 Portée : Commun à l'ensemble des pages de la SAE
 
+(j'ai ajouté des délires)
+
 Objectif : 
   - Contient les données des Pokemon
     - Se base sur le fichier de Moodle
