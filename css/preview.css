@@ -59,16 +59,15 @@
     border-width: 8px;
   }
   100% {
-    left: calc(((100vw - var(--width)) / 2) - 8px);
-    top: 100px;
+    /* Réinitialisation */
   }
 }
 
 @media screen and (max-width: 800px) {
   .pokemon-card-container {
-    /* center the card */
     left: 50%;
     transform: translateX(-50%);
+    animation: none;
   }
 }
 

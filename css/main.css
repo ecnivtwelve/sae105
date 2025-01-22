@@ -89,3 +89,9 @@ body.plain {
   opacity: 0.24;
   height: 300px;
 }
+
+@keyframes reveal {
+  0% {
+    opacity: 0%;
+  }
+}
