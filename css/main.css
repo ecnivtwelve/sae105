@@ -119,7 +119,7 @@ body.plain {
 
 @font-face {
   font-family: "Exo";
-  src: url("../assets/fonts/Exo-Semibold.ttf") format("truetype");
+  src: url("../assets/fonts/Exo-SemiBold.ttf") format("truetype");
   font-weight: 600;
 }
 
