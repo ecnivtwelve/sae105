@@ -184,6 +184,7 @@ function showRelatedPokemons() {
 }
 
 // Appel des fonctions
+
 setCardToPlaceholder();
 placeImages();
 checkIfCollected();

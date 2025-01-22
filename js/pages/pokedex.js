@@ -67,6 +67,7 @@ function showMyCardsToPokedex() {
 
   // Si vide, on ne fait rien
   if (!storage) {
+    document.body.classList.add("no-cards");
     return;
   }
 
