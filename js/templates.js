@@ -17,6 +17,10 @@ function templatePokemonCard(id, animationIndex) {
     return "";
   }
 
+  // on part de 1 dans la liste de Pokémons
+  const finalID = parseInt(id) + 1;
+  const stringPokemonID = finalID.toString().padStart(3, "0");
+
   return `
        <a
         class="pokemon-card ${animationIndex !== false ? "animated" : ""}"
@@ -24,13 +28,13 @@ function templatePokemonCard(id, animationIndex) {
           --color: #${genSeededColor(id)};
           --index:${animationIndex};
         "
-        href="./pokemon.html?id=${id}"
+        href="./pokemon.html?id=${finalID}"
         onmouseenter="setHomeColor('#${genSeededColor(id)}')"
         onmouseleave="resetHomeColor()"
         >
         <div class="pokemon-card-header">
           <div class="pokemon-card-header-title">
-            <p class="pokemon-card-num">${id}</p>
+            <p class="pokemon-card-num">${stringPokemonID}</p>
             <p class="pokemon-card-name">${
               pokemon.name["fr"] ?? pokemon.identifier
             }</p>

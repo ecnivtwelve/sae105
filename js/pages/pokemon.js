@@ -5,9 +5,9 @@ Portée : Page d'accueil : pokemon.html
 
 // Obtient l'ID du pokemon dans l'URL (paramètres GET)
 const urlParams = new URLSearchParams(window.location.search);
-const pokemonId = urlParams.get("id");
+const pokemonId = urlParams.get("id") ? parseInt(urlParams.get("id")) - 1 : -1;
 
-if (!pokemonId) {
+if (!urlParams.get("id")) {
   document.body.classList.add("error");
 }
 
