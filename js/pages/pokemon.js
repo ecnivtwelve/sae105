@@ -28,7 +28,7 @@ document.documentElement.style.setProperty(
 // Affiche la carte du pokemon
 const setCardToPlaceholder = () => {
   const card = document.getElementById("pokemon-card");
-  card.innerHTML = templatePokemonCard(pokemonId);
+  card.innerHTML = templatePokemonCard(pokemonId, false);
 };
 
 // Place des images de pokemon via l'ID en GET (pour le fond animé)
