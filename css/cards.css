@@ -86,6 +86,7 @@ a.pokemon-card {
 .pokemon-card:hover {
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.1),
     0px 2px 6px 0px rgba(0, 0, 0, 0.45);
+  cursor: pointer !important;
 }
 
 .pokemon-card p {

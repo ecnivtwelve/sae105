@@ -65,6 +65,7 @@ body.plain {
   white-space: nowrap;
   direction: ltr;
   user-select: none;
+  max-width: 60px !important;
 }
 
 .page-hover-gradient {

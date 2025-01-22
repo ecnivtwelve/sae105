@@ -28,7 +28,8 @@ function templatePokemonCard(id, animationIndex) {
           --color: #${genSeededColor(id)};
           --index:${animationIndex};
         "
-        href="./pokemon.html?id=${finalID}"
+        id="pokemon-card-${finalID}"
+        onclick="openPokemonCardAnimate(${finalID})"
         onmouseenter="setHomeColor('#${genSeededColor(id)}')"
         onmouseleave="resetHomeColor()"
         >

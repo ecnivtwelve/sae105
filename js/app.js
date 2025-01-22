@@ -152,3 +152,12 @@ try {
 }
 
 applyName();
+
+// href = "./pokemon.html?id=${finalID}";
+function openPokemonCardAnimate(id) {
+  const cardItem = document.getElementById(`pokemon-card-${id}`);
+  var rect = cardItem.getBoundingClientRect();
+
+  // redirect to the pokemon page
+  window.location.href = `./pokemon.html?id=${id}&top=${rect.top}&left=${rect.left}`;
+}

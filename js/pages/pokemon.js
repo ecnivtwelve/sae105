@@ -7,6 +7,21 @@ Portée : Page d'accueil : pokemon.html
 const urlParams = new URLSearchParams(window.location.search);
 const pokemonId = urlParams.get("id") ? parseInt(urlParams.get("id")) - 1 : -1;
 
+const cardLeft = urlParams.get("left");
+const cardTop = urlParams.get("top");
+
+if (cardLeft && cardTop) {
+  document.body.classList.add("transitionCard");
+  document.documentElement.style.setProperty("--card-left", cardLeft + "px");
+  document.documentElement.style.setProperty("--card-top", cardTop + "px");
+
+  // remove url params left and top
+  const url = new URL(window.location);
+  url.searchParams.delete("left");
+  url.searchParams.delete("top");
+  window.history.replaceState({}, "", url);
+}
+
 if (!urlParams.get("id")) {
   document.body.classList.add("error");
 }

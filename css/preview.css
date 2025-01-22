@@ -32,7 +32,7 @@
 .pokemon-card-container {
   position: absolute;
   width: 250px;
-  left: calc(((100vw - var(--width)) / 2) - 15px);
+  left: calc(((100vw - var(--width)) / 2) - 8px);
   top: 100px;
   z-index: 10;
   display: flex;
@@ -41,6 +41,27 @@
   background: #f9f9f9;
   border-radius: 20px;
   z-index: 999;
+}
+
+.transitionCard .pokemon-card-container {
+  animation-name: transitionCard;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+}
+
+@keyframes transitionCard {
+  0% {
+    left: var(--card-left);
+    top: var(--card-top);
+    border-width: 0px;
+  }
+  50% {
+    border-width: 8px;
+  }
+  100% {
+    left: calc(((100vw - var(--width)) / 2) - 8px);
+    top: 100px;
+  }
 }
 
 @media screen and (max-width: 800px) {
@@ -133,7 +154,7 @@
 }
 
 .main-info {
-  margin-left: 266px;
+  margin-left: 276px;
   margin-top: 20px;
 
   display: flex;
