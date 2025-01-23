@@ -12,29 +12,6 @@ const allElement = document.getElementById("all-cards");
 const myElement = document.getElementById("my-cards");
 const typesDropdown = document.getElementById("types-dropdown");
 
-// Types de Pokémon avec des symboles Material
-const pokemonTypesWithSymbols = [
-  { type: "Normal", symbol: "adjust" },
-  { type: "Feu", symbol: "local_fire_department" },
-  { type: "Eau", symbol: "water_drop" },
-  { type: "Électrique", symbol: "flash_on" },
-  { type: "Plante", symbol: "grass" },
-  { type: "Glace", symbol: "ac_unit" },
-  { type: "Combat", symbol: "fitness_center" },
-  { type: "Poison", symbol: "science" },
-  { type: "Sol", symbol: "terrain" },
-  { type: "Vol", symbol: "air" },
-  { type: "Psy", symbol: "psychology" },
-  { type: "Insecte", symbol: "bug_report" },
-  { type: "Roche", symbol: "landscape" },
-  { type: "Spectre", symbol: "dark_mode" },
-  { type: "Dragon", symbol: "rocket_launch" },
-  { type: "Ténèbres", symbol: "visibility_off" },
-  { type: "Acier", symbol: "construction" },
-  { type: "Fée", symbol: "auto_awesome" },
-  { type: "Spécial", symbol: "hotel_class" },
-];
-
 // Cache du pokedex complet rendu pour gagner en performances
 let fullPokedexCache = "";
 // Filtre en cours (variable globale)
@@ -76,8 +53,10 @@ function showMyCardsToPokedex() {
 
   // Boucle sur les cartes
   const cardsHTML = Object.keys(collected)
-    .map((pokemon) =>
-      collected[pokemon].amount > 0 ? templatePokemonCard(pokemon) : ""
+    .map((pokemon, i) =>
+      collected[pokemon].amount > 0
+        ? templatePokemonCard(pokemon, -1, collected[pokemon].amount)
+        : ""
     )
     .join("");
 

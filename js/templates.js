@@ -10,7 +10,7 @@ Objectif :
 
 const pokemons = Object.values(pokemonData);
 
-function templatePokemonCard(id, animationIndex) {
+function templatePokemonCard(id, animationIndex, amount) {
   const pokemon = pokemons[id];
 
   if (!pokemon) {
@@ -22,14 +22,15 @@ function templatePokemonCard(id, animationIndex) {
   const stringPokemonID = finalID.toString().padStart(3, "0");
 
   return `
-       <a
+      <a
+        href="./pokemon.html?id=${finalID}"
         class="pokemon-card ${animationIndex !== false ? "animated" : ""}"
         style="
           --color: #${genSeededColor(id)};
           --index:${animationIndex};
         "
         id="pokemon-card-${finalID}"
-        onclick="openPokemonCardAnimate(${finalID})"
+        onclick="openPokemonCardAnimate(event, ${finalID})"
         onmouseenter="setHomeColor('#${genSeededColor(id)}')"
         onmouseleave="resetHomeColor()"
         >
@@ -81,6 +82,16 @@ function templatePokemonCard(id, animationIndex) {
             <p class="pokemon-card-stat-value">${pokemon.base_experience}</p>
           </div>
         </div>
+                ${
+                  amount && amount > 0
+                    ? `<span class="pokemon-card-amount"><span class="x">x</span>${amount}</span>`
+                    : ""
+                }
+        ${
+          amount && amount > 1
+            ? `<div class="pokemon-amount-background"></div>`
+            : ""
+        }
       </a>
     `;
 }

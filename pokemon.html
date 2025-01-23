@@ -107,7 +107,16 @@
       <div class="main-info-container width">
         <div class="main-info">
           <div class="main-description">
-            <p id="pokemon-name" class="pokemon-name">Nom du Pokémon</p>
+            <div class="pokemon-name-container">
+              <p id="pokemon-name" class="pokemon-name">Nom du Pokémon</p>
+              <div class="type-icon">
+                <span
+                  id="pokemon-type"
+                  class="type-symbol material-symbols-outlined"
+                  >home</span
+                >
+              </div>
+            </div>
             <p id="pokemon-description" class="pokemon-description">
               Description du Pokémon
             </p>
@@ -130,7 +139,12 @@
                 >
               </a>
               <div class="incrementer-value">
-                <p class="incrementer-value-text" id="collection-count">0</p>
+                <input
+                  type="number"
+                  id="collection-count"
+                  class="incrementer-value-input"
+                  value="0"
+                />
               </div>
               <a href="#" class="incrementer-btn" onclick="collectPokemon()">
                 <span class="incrementer-icon material-symbols-outlined"

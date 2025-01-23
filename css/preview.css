@@ -174,6 +174,28 @@
   padding: 0;
 }
 
+.pokemon-name-container {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+  align-items: center;
+}
+
+.type-icon {
+  width: 26px;
+  height: 26px;
+  background-color: var(--type-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 300px;
+}
+
+.type-symbol {
+  font-size: 20px !important;
+  color: #fff;
+}
+
 .pokemon-name {
   font-size: 22px;
   font-weight: 700;
@@ -294,14 +316,32 @@
 }
 
 .incrementer-value {
-  padding: 0 10px;
+  padding: 0 0px;
   font-size: 16px;
   font-weight: 500;
 }
 
-.incrementer-value-text {
+.incrementer-value-input {
   font-size: 18px;
   font-weight: 500;
+
+  border: none;
+  padding: 0;
+  background: transparent;
+  text-align: center;
+  width: 36px;
+
+  height: 100%;
+}
+
+.incrementer-value-input::-webkit-outer-spin-button,
+.incrementer-value-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.incrementer-value-input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .data-container {

@@ -154,10 +154,35 @@ try {
 applyName();
 
 // href = "./pokemon.html?id=${finalID}";
-function openPokemonCardAnimate(id) {
+function openPokemonCardAnimate(e, id) {
+  e.preventDefault();
+
   const cardItem = document.getElementById(`pokemon-card-${id}`);
   var rect = cardItem.getBoundingClientRect();
 
   // redirect to the pokemon page
   window.location.href = `./pokemon.html?id=${id}&top=${rect.top}&left=${rect.left}`;
 }
+
+// Types de Pokémon avec des symboles Material
+const pokemonTypesWithSymbols = [
+  { type: "Normal", symbol: "adjust" },
+  { type: "Feu", symbol: "local_fire_department" },
+  { type: "Eau", symbol: "water_drop" },
+  { type: "Électrique", symbol: "flash_on" },
+  { type: "Plante", symbol: "grass" },
+  { type: "Glace", symbol: "ac_unit" },
+  { type: "Combat", symbol: "fitness_center" },
+  { type: "Poison", symbol: "science" },
+  { type: "Sol", symbol: "terrain" },
+  { type: "Vol", symbol: "air" },
+  { type: "Psy", symbol: "psychology" },
+  { type: "Insecte", symbol: "bug_report" },
+  { type: "Roche", symbol: "landscape" },
+  { type: "Spectre", symbol: "dark_mode" },
+  { type: "Dragon", symbol: "rocket_launch" },
+  { type: "Ténèbres", symbol: "visibility_off" },
+  { type: "Acier", symbol: "construction" },
+  { type: "Fée", symbol: "auto_awesome" },
+  { type: "Spécial", symbol: "hotel_class" },
+];

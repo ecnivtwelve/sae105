@@ -61,6 +61,21 @@ const placeImages = () => {
 document.getElementById("pokemon-name").innerText =
   pokemon.name["fr"] ?? pokemon.identifier;
 
+document.getElementById("pokemon-type").innerText =
+  pokemonTypesWithSymbols.find(
+    (type) => type.type === pokemon.type_fr[0]
+  ).symbol;
+
+document.documentElement.style.setProperty(
+  "--type-color",
+  pokemon.type_color[0]
+);
+
+document.documentElement.style.setProperty(
+  "--type-color-light",
+  pokemon.type_color[0] + "33"
+);
+
 // Affichge la description
 document.getElementById("pokemon-description").innerText = `
   ${pokemon.name["fr"]} est un Pokémon de type ${pokemon.type_fr[0]} avec une expérience de base de ${pokemon.base_experience} points. Il se nomme ${pokemon.name["jp"]} en japonais et possède ${pokemon.stats.hp} points de vie.
@@ -72,7 +87,7 @@ function checkIfCollected() {
     JSON.parse(localStorage.getItem("collectedPokemons")) || {};
   if (collectedPokemons[pokemonId] && collectedPokemons[pokemonId].amount > 0) {
     document.getElementById("collect-btns").classList.add("added");
-    document.getElementById("collection-count").innerText =
+    document.getElementById("collection-count").value =
       collectedPokemons[pokemonId].amount;
 
     if (collectedPokemons[pokemonId].amount === 1) {
@@ -86,6 +101,36 @@ function checkIfCollected() {
   }
 }
 
+document.getElementById("collection-count").addEventListener("input", (e) => {
+  const value = parseInt(e.target.value);
+
+  let collectedPokemons =
+    JSON.parse(localStorage.getItem("collectedPokemons")) || {};
+
+  if (value <= 0) {
+    collectedPokemons[pokemonId].amount = 0;
+  } else if (value < 99) {
+    collectedPokemons[pokemonId].amount = value;
+  } else {
+    e.target.value == 99;
+    collectedPokemons[pokemonId].amount = 99;
+  }
+
+  if (isNaN(value)) {
+    collectedPokemons[pokemonId].amount = 0;
+  }
+
+  localStorage.setItem("collectedPokemons", JSON.stringify(collectedPokemons));
+});
+
+document.getElementById("collection-count").addEventListener("click", (e) => {
+  e.target.select();
+});
+
+document.getElementById("collection-count").addEventListener("blur", (e) => {
+  checkIfCollected();
+});
+
 // Ajoût du Pokémon à la collection
 function collectPokemon() {
   // Obtient les données de la collection depuis le localStorage
@@ -94,7 +139,9 @@ function collectPokemon() {
   if (!collectedPokemons[pokemonId]) {
     collectedPokemons[pokemonId] = { amount: 0 };
   }
-  collectedPokemons[pokemonId].amount += 1;
+  if (collectedPokemons[pokemonId].amount < 99) {
+    collectedPokemons[pokemonId].amount += 1;
+  }
   localStorage.setItem("collectedPokemons", JSON.stringify(collectedPokemons));
   checkIfCollected();
 }
