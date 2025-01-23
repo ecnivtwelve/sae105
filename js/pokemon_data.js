@@ -4866,7 +4866,7 @@ const pokemonData = {
     base_experience: 68,
     name: {
       fr: "Féo Lerezou",
-      en: "Féo Lerezou",
+      en: "Feo Lerezou",
       jp: "ンンン",
     },
     type: ["psychic", "special"],

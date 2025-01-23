@@ -74,7 +74,7 @@ function renderSearchResults(results, domElement) {
 
     const resultElement = document.createElement("a");
     resultElement.className = "search-result";
-    resultElement.href = `./pokemon.html?id=${index - 1}`;
+    resultElement.href = `./pokemon.html?id=${index}`;
     resultElement.innerHTML = `
       <div class="search-image">
         <img src="./img/full/${index}.png" alt="${pokemon.identifier}" />
