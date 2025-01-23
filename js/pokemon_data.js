@@ -4860,7 +4860,7 @@ const pokemonData = {
     },
   },
   203: {
-    identifier: "ferezou",
+    identifier: "feo",
     height: 51,
     weight: 68,
     base_experience: 68,
