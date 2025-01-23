@@ -61,10 +61,11 @@ const placeImages = () => {
 document.getElementById("pokemon-name").innerText =
   pokemon.name["fr"] ?? pokemon.identifier;
 
-document.getElementById("pokemon-type").innerText =
-  pokemonTypesWithSymbols.find(
+document.querySelectorAll(".show-poke-type").forEach((element) => {
+  element.innerText = pokemonTypesWithSymbols.find(
     (type) => type.type === pokemon.type_fr[0]
   ).symbol;
+});
 
 document.documentElement.style.setProperty(
   "--type-color",
@@ -205,7 +206,7 @@ function showEvolutions() {
       pokemons[evolution].name["fr"] ?? pokemons[evolution].identifier;
 
     newEvolutions += `
-    <a href="pokemon.html?id=${evolution}" class="stat evolution">
+    <a href="pokemon.html?id=${evolution + 1}" class="stat evolution">
               <img class="evolution-image" src="./img/full/${
                 evolution + 1
               }.png" />
@@ -220,7 +221,7 @@ function showEvolutions() {
       pokemons[evolution].name["fr"] ?? pokemons[evolution].identifier;
 
     newEvolutions += `
-    <a href="pokemon.html?id=${evolution}" class="stat evolution">
+    <a href="pokemon.html?id=${evolution + 1}" class="stat evolution">
               <img class="evolution-image" src="./img/full/${
                 evolution + 1
               }.png" />
