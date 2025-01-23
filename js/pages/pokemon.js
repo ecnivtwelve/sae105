@@ -67,6 +67,10 @@ document.querySelectorAll(".show-poke-type").forEach((element) => {
   ).symbol;
 });
 
+// Gère les types
+document.getElementById("pokemon-types").innerText =
+  pokemon.type_fr.join(" et ");
+
 document.documentElement.style.setProperty(
   "--type-color",
   pokemon.type_color[0]
@@ -79,7 +83,13 @@ document.documentElement.style.setProperty(
 
 // Affichge la description
 document.getElementById("pokemon-description").innerText = `
-  ${pokemon.name["fr"]} est un Pokémon de type ${pokemon.type_fr[0]} avec une expérience de base de ${pokemon.base_experience} points. Il se nomme ${pokemon.name["jp"]} en japonais et possède ${pokemon.stats.hp} points de vie.
+  ${pokemon.name["fr"]} est un Pokémon de type ${pokemon.type_fr.join(
+  " et "
+)} avec une expérience de base de ${
+  pokemon.base_experience
+} points. Il se nomme ${pokemon.name["jp"]} en japonais et possède ${
+  pokemon.stats.hp
+} points de vie.
 `.trim();
 
 // Vérifie si le Pokémon est collecté
